@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+    - name: SalesData
+      description: A clone of google cloud bigquery table.
+      database: bigquerytest-310107
+      tables: 
+          - name: SalesRecord
+            description: Raw salse records
+            columns:
+                 - name: order_id
+                   description: Unique order_id
+                   tests:
+                        - unique
+                        - not_null
+                 - name: order_priority
+                   tests:
+                        - accepted_values:
+                            values:
+                              - L
+                              - H
+                              - M
+                              - C
+         
